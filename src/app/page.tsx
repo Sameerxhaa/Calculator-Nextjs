@@ -5,9 +5,10 @@ export default function Home() {
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
 
-  const handleClick = (value) => {
+  const handleClick = (value: string) => {
     setInput((prev) => prev + value);
   };
+  
 
   const clearInput = () => {
     setInput("");
@@ -16,8 +17,9 @@ export default function Home() {
 
   const calculateResult = () => {
     try {
-      setResult(eval(input)); 
+      setResult(eval(input));
     } catch (error) {
+      console.error("Calculation error:", error); // Now 'error' is used, avoiding ESLint warning
       setResult("Error");
     }
   };
